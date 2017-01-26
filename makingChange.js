@@ -44,6 +44,7 @@ var makeChange = function(amountLeft, denominations, index) {
     // we're out of denominations
     if (index === denominations.length) return 0;
 
+    console.log('checking ways to make ' + amountLeft + ' with ' + denominations.slice(index));
     // see how many possibilities we can get
     // for each number of times we use the current denomination
     var numPossibilities = 0;
@@ -59,6 +60,43 @@ var makeChange = function(amountLeft, denominations, index) {
 
 
 // Memoized:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
