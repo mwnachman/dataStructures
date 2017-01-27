@@ -18,6 +18,20 @@ var nthFibonacci = function(n) {
 }
 
 
+// to do it in constant space:
 
+var nthFibonacci = function(n) {
+  if (n === 0 || n === 1) {
+    return n;
+  }
+  var prevPrev = 0;
+  var prev = 1;
+  for (var i = 2; i <= n; i++) {
+    var current = prevPrev + prev;
+    prevPrev = prev;
+    prev = current; 
+  }
+  return current;
+}
 
 
