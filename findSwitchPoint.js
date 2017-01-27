@@ -1,6 +1,6 @@
 var findRotationPoint = function(arr) {
-  var lowerBoundIndex = -1;
-  var upperBoundIndex = arr.length;
+  var lowerBoundIndex = 0;
+  var upperBoundIndex = arr.length - 1;
 
   while (lowerBoundIndex + 1 < upperBoundIndex) {
     var difference = upperBoundIndex - lowerBoundIndex;
@@ -12,5 +12,5 @@ var findRotationPoint = function(arr) {
     }
   }
 
-  return arr[lowerBoundIndex] < arr[upperBoundIndex] ? arr[lowerBoundIndex] : arr[upperBoundIndex];
+  return upperBoundIndex;
 }
