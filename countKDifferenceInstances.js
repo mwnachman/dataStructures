@@ -1,20 +1,20 @@
-Given an array of random integers (a), and a non-negative integer (k), display the number of times 2 numbers in the array have a difference of k
+// Given an array of random integers (a), and a non-negative integer (k), display the number of times 2 numbers in the array have a difference of k
 
-Example 1:
-a = [3, 2, 7, 9, 10]
-k = 1
+// Example 1:
+// a = [3, 2, 7, 9, 10]
+// k = 1
 
-Answer:
-2
+// Answer:
+// 2
 
-Example 2:
-a = [1, 1, 3, 4, 2]
-k = 2
+// Example 2:
+// a = [1, 1, 3, 4, 2]
+// k = 2
 
-Answer: 
-3
+// Answer: 
+// 3
 
-____________________________________________________________________
+// ____________________________________________________________________
 
 // BRUTE FORCE -- O(n^2): 
 
