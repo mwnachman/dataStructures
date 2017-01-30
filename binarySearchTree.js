@@ -5,7 +5,7 @@ var BinarySearchTreeNode = function(value) {
   this.right = null;
 
 }
-
+ 
 BinarySearchTreeNode.prototype.addChild = function(value) {
   if (value < this.value) {
     if (this.left === null ) {
@@ -54,42 +54,56 @@ BinarySearchTreeNode.prototype.depthFirstLog = function(callback) {
 // Use case: Given a list of a million numbers, write a 
 // function that takes a new number and returns the closest 
 // number in the list using your BST. 
-// Profile this against the same operation using an array.
 
-// This isn't right yet:
+// My rather inelegant solution (if two numbers are equally close, 
+// it returns the last one it finds:
 
-// BinarySearchTreeNode.prototype.findClosestNode = function(value) {
-//   var difference = Math.abs(this.value - value);
-//   if (value === this.value) {
-//     return difference;
-//   } else if (value < this.value) { 
-//       if (this.left) {
-//         return this.left.findClosestNode(value);   
-//       } else {
-//         return difference;
-//       }
-//   } else {
-//     if (this.right) {
-//       return this.right.findClosestNode(value);
-//     } else {
-//       return difference;
-//     }
-//   }
-// }
+BinarySearchTreeNode.prototype.findClosestNode = function(value, closestSoFar) {
+  closestSoFar = closestSoFar || Math.MAX_VALUE;
+  if (value === this.value) {
+    return this.value;
+  } else if (this.right === null && this.left === null) {
+    return Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
+  } else if (value > this.value) { 
+    if (this.right) {
+      closestSoFar = Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
+      return this.right.findClosestNode(value, closestSoFar);   
+    } else {
+      return Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
+    }
+  } else if (value < this.value) {
+    if (this.left) {
+      closestSoFar = Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
+      return this.left.findClosestNode(value, closestSoFar);
+    } else {
+      return Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
+    }
+  }
+}
+
 
 // Find second largest node
+
+// Helper function to find largest node:
+
+BinarySearchTreeNode.prototype.findLargestNode = function() {
+  if (this.right) {
+    return this.right.findLargestNode();
+  } else {
+    return this.value;
+  }
+}
 
 BinarySearchTreeNode.prototype.findSecondLargestNode = function() {
   if (this.right) {
     if (this.right.right === null && this.right.left === null) {
       return this.value;
-    } else if (this.right.right && this.right.left === null) {
-      this.right.findSecondLargestNode();
-    } else if (this.right.left && this.right.right === null) {
-        return this.right.left.findSecondLargestNode();
-      } 
-    }
-  } 
+    } else {
+      return this.right.findSecondLargestNode();
+    } 
+  } else if (this.left) {
+    return this.left.findLargestNode();
+  }
 }
 
 
