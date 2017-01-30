@@ -62,8 +62,6 @@ BinarySearchTreeNode.prototype.findClosestNode = function(value, closestSoFar) {
   closestSoFar = closestSoFar || Math.MAX_VALUE;
   if (value === this.value) {
     return this.value;
-  } else if (this.right === null && this.left === null) {
-    return Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
   } else if (value > this.value) { 
     if (this.right) {
       closestSoFar = Math.abs(closestSoFar - value) < Math.abs(this.value - value) ? closestSoFar : this.value;
@@ -107,6 +105,34 @@ BinarySearchTreeNode.prototype.findSecondLargestNode = function() {
 }
 
 
+// Function to see if binary search tree has same depth (within 1 node)
+// on all branches:
+
+BinarySearchTreeNode.prototype.checkDepthEquality = function() {
+  var depths = [];
+  var result = true;
+  var recurse = function(depth, node) {
+    if (!node.right && !node.left) {
+      if (depths.indexOf(depth) < 0) {
+        depths.push(depth);
+      }
+      depths = depths.sort();
+    }
+    if (depths.length > 2 || depths[depths.length - 1] - depths[0] > 1) {
+      result = false;
+      return;
+    } else {
+      if (node.right) {
+        recurse(depth + 1, node.right);
+      } 
+      if (node.left) {
+        recurse(depth + 1, node.left);
+      }
+    }
+  }
+  recurse(0, this);
+  return result;
+}
 
 
 
