@@ -1,5 +1,5 @@
 // From Codewars:
-
+ 
 // Description:
 
 // The word i18n is a common abbreviation of internationalization 
@@ -33,102 +33,34 @@
 // //                     "-"      " "    " "     " "     "!"
 // === "e6t-r3s are r4y fun!"
 
-
-function mix(s1, s2) {
-
-  var countsS1 = {};
-  var countsS2 = {};
-  var resultS1 = {};
-  var resultS2 = {};
-  var resultEqual = {};
-  var result = {};
-  var resultArray = [];
-  for (var i = 0; i < s1.length; i++) {
-    var keyS1 = 
-        s1[i] != ' ' && 
-        s1[i].match(/[a-z]/) && 
-        s1[i] === s1[i].toLowerCase() ? s1[i] : 'extra';
-    if (keyS1 in countsS1){
-      countsS1[keyS1] += 1;
+function abbreviate(string) {
+  var arrayOfWords = string.includes(' ') ? string.split(' ') : [string];
+  var newArray = arrayOfWords.map(function(word) {
+    if (word.length < 4){
+      return word;
+    }
+    else if (word.match(/[^a-zA-Z\d\s:]/)) {
+      for (var j = 0; j < word.length; j++) {
+        if (word[j].match(/[^a-zA-Z\d\s:]/)) {
+          var i = j;
+          var savedChar = word[j];
+          if (i === word.length-1 && word.length > 4) {
+            return word[0] + (word.length - 3) + word[word.length - 2] + savedChar;
+          } else if (i > 3 && word.length - i > 4) {
+              return word[0] + (i-2) + word[i-1] + word[i] + word[i+1] + (word.length - 3 - i) + word[word.length-1]
+          } else if (i <= 3 && word.length - 1 > 4){
+              return word.slice(0, i) + word[i+1] + (word.length - 3 - i) + word[word.length-1]
+          } else if (i > 3 && word.length - 1 <= 4){
+              return word[0] + (i-2) + word[i-1] + word[i] + word.slice(i+1, word.length-1)
+          }
+        } 
+      }
     } else {
-      countsS1[keyS1] = 1;
-    }
-  }
-
-  for (var i = 0; i < s2.length; i++) {
-    var keyS2 = 
-      s2[i] != ' ' && 
-      s2[i].match(/[a-z]/) && 
-      s2[i] === s2[i].toLowerCase() ? s2[i] : 'extra';
-    if (keyS2 in countsS2) {
-      countsS2[keyS2] += 1;
-    }
-    else {
-      countsS2[keyS2] = 1;
-    }
-  }
-
-  for (var key in countsS1){
-    if (countsS1[key] > 1 
-        && countsS1[key] === countsS2[key] 
-        && key != 'extra') {
-      resultEqual[key] = countsS1[key]; 
-    } else if (countsS1[key] > 1 
-               && (countsS2[key] < countsS1[key] || countsS2[key] === undefined) 
-               && key != 'extra' 
-               && countsS1[key] != countsS2[key]){
-      resultS1[key] = countsS1[key];
-    } else if (countsS1[key] < countsS2[key] 
-               && countsS2[key] > 1 
-               && key != 'extra' 
-               && countsS1[key] != countsS2[key]) {
-      resultS2[key] = countsS2[key];
-    }
-  }
-
-  for (var key in countsS2) {
-    if (!(key in resultS1) 
-        && key != 'extra' 
-        && countsS1[key] != countsS2[key]
-        && countsS2[key] > 1) {
-      resultS2[key] = countsS2[key];
-    }
-  }
-
-  for (var key in resultS1) {
-    var numTimes = resultS1[key];
-    var timesCode = Math.floor((1 / numTimes) * 100);
-    var charCode = ('0' + key.charCodeAt(0)).slice(-3);
-    result[timesCode + '1' + charCode] = ('1:' + key.repeat(numTimes));
-  }
-
-  for (var key in resultS2) {
-    var numTimes = resultS2[key];
-    var timesCode = Math.floor((1 / numTimes) * 100);
-    var charCode = ('0' + key.charCodeAt(0)).slice(-3);
-    result[timesCode + '2' + charCode] = ('2:' + key.repeat(numTimes));
-  }
-
-  for (var key in resultEqual) {
-    var numTimes = resultEqual[key];
-    var timesCode = Math.floor((1 / numTimes) * 100);
-    var charCode = ('0' + key.charCodeAt(0)).slice(-3);
-    result[timesCode + '3' + charCode] = ('=:' + key.repeat(numTimes));
-  }
-
-  var orderedResult = {};
-  Object.keys(result).sort().forEach(function(key) {
-    orderedResult[key] = result[key];
+      return word[0] + (word.length - 2) + word[word.length - 1]
+    }  
   });
-  
-  for (var key in orderedResult){
-    resultArray.push(orderedResult[key]);
-  }
-
-  return resultArray.join('/');
+  return newArray.join(' ');
 }
-
-
 
 
 
