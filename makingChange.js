@@ -1,5 +1,7 @@
+// Three ways to write this function:
+
 // Let's use cents:
-// denominations = [1, 5, 10, 25, 50, 100]
+// var denominations = [1, 5, 10, 25, 50, 100]
 
 // Vanilla recursion:
 
@@ -26,7 +28,8 @@ var makeChange = function(amountChange, denominations) {
 }
 
 
-// Another way to do it with vanilla recursion:
+// Another way to do it with vanilla recursion (this solution is a variation
+// on Interview Cake's solution) -- it's a little bit slower than mine:
 
 var makeChange = function(amountLeft, denominations, index) {
     index = index || 0;
@@ -44,7 +47,7 @@ var makeChange = function(amountLeft, denominations, index) {
     // we're out of denominations
     if (index === denominations.length) return 0;
 
-    console.log('checking ways to make ' + amountLeft + ' with ' + denominations.slice(index));
+    // console.log('amountLeft: ', amountLeft, 'denominations remaining: ', denominations.slice(index));
     // see how many possibilities we can get
     // for each number of times we use the current denomination
     var numPossibilities = 0;
@@ -55,36 +58,74 @@ var makeChange = function(amountLeft, denominations, index) {
     }
 
     return numPossibilities;
-}
+};
+
+
+// Memoized -- a little bit slower than my solution but 
+// faster than the Interview Cake solution (and presumably 
+// with accumulating results, this would become faster than
+// my solution as well -- and obviously I could try memoizing
+// my own solution, but it was more complicated with the internal
+// function so I haven't tried it yet):
+
+var makeChange = (function() {
+
+  var makeChangeHash = {};
+
+  var mkChg = function(amountLeft, denominations, index) {
+
+    index = index || 0;
+
+    // denominations must be in descending order
+    denominations = denominations.slice().sort(function(a,b){return b - a})
+
+    // base cases:
+    if (amountLeft === 0) return 1;
+
+    if (amountLeft < 0) return 0;
+
+    if (index === denominations.length) return 0;
+
+    var numPossibilities = 0;
+    while (amountLeft >= 0) {
+      // console.log('json stringify', JSON.stringify(arguments));
+      if (makeChangeHash[JSON.stringify(arguments)]) {
+        numPossibilities += makeChangeHash[JSON.stringify(arguments)];
+        amountLeft -= denominations[index];
+      } else {
+        makeChangeHash[JSON.stringify(arguments)] 
+          = makeChange(amountLeft, denominations, index + 1);
+        numPossibilities += makeChangeHash[JSON.stringify(arguments)]
+        amountLeft -= denominations[index];
+      } 
+    }
+    // console.log('makeChangeHash', makeChangeHash);
+    return numPossibilities;
+
+  }
+
+  return mkChg;
+})();
 
 
 
-// Memoized:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.time('MakeChange');
+console.log('makeChange', makeChange(8, denominations));
+console.log('makeChange', makeChange(10, denominations));
+console.log('makeChange', makeChange(15, denominations));
+console.log('makeChange', makeChange(25, denominations));
+console.log('makeChange', makeChange(45, denominations));
+console.timeEnd('MakeChange');
+console.time('MakeChange');
+console.log('makeChange', makeChange(50, denominations));
+console.timeEnd('MakeChange');
+console.time('MakeChange');
+console.log('makeChange', makeChange(60, denominations));
+console.timeEnd('MakeChange');
+console.time('MakeChange');
+console.log('makeChange', makeChange(70, denominations));
+console.timeEnd('MakeChange');
 
 
 

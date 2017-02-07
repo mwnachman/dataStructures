@@ -1,5 +1,5 @@
 var longestPalindrome = function(str) {
-
+  // Not yet completed
 }
 
 
