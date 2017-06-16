@@ -1,18 +1,19 @@
 // Break the chain into three parts the least expensive way:
 
-// you can't break on the first or last element
-// you can't break on adjacent elements
-// you must break in two spots
+// Rules:
+// 1. you can't break on the first or last element
+// 2. you can't break on adjacent elements
+// 3. you must break in two spots
 
-// for instance:  [5, 2, 6, 1, 3, 0]
-// you would break on 2 and 3 (because it sums to 5)
-// 1 and 3 would be less, but they are adjacent
-// 1, 2, or 3 and 0 would be less, but you can't break
-// on zero because it's at the end
+// For instance:  [5, 2, 6, 1, 1, 0]
+// You would break on 2 and 1 (because it sums to 3).
+// 1 and 1 would be less, but they are adjacent.
+// 1 or 2 and 0 would be less, but you can't break
+// on zero because it's at the end.
 
-function solution(arr) {
-  var lowestFour = [[Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE]];
-  for (var i = 1; i < arr.length - 1; i++) {
+const breakChain = function(arr) {
+  const lowestFour = [[Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE]];
+  for (let i = 1; i < arr.length - 1; i++) {
     if (arr[i] < lowestFour[3][0]) {
       lowestFour[3] = [arr[i], i];
       lowestFour.sort(function(a, b){return a[0] - b[0]});
@@ -21,61 +22,22 @@ function solution(arr) {
   if (Math.abs(lowestFour[0][1] - lowestFour[1][1]) > 1) {
     return lowestFour[0][0] + lowestFour[1][0];
   } else {
-    var firstPair = lowestFour[0][0] + lowestFour[2][0];
-    var secondPair = lowestFour[1][0] + lowestFour[3][0];
+    const firstPair = lowestFour[0][0] + lowestFour[2][0];
+    const secondPair = lowestFour[1][0] + lowestFour[3][0];
     return firstPair < secondPair ? firstPair : secondPair;
   }
 }
 
-
 // TESTS
 
+const arr1 = [5, 2, 6, 1, 1, 0]
+const arr2 = [0, 4, 3, 5, 1, 2, 4]
+const arr3 = [1, 1, 1, 1, 1, 1, 1]
+const arr4 = [-3, -4, -1, 0, 1]
+const arr5 = [-3, -4, -1, 0, 1, -2, -7]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.assert(breakChain(arr1) === 3, '1 failed')
+console.assert(breakChain(arr2) === 4, '2 failed')
+console.assert(breakChain(arr3) === 2, '3 failed')
+console.assert(breakChain(arr4) === -4, '4 failed')
+console.assert(breakChain(arr5) === -6, '5 failed')
