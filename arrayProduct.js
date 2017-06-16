@@ -30,7 +30,6 @@ var arrayProduct = function(arr) {
 
 // To do it with less space (one array instead of three):
 
-
 var arrayProduct = function(arr) {
   var result = [];
   var tempProd = 1;
