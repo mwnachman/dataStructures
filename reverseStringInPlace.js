@@ -1,3 +1,6 @@
+// Just like it sounds.  Reverse a string with
+// minimal space complexity
+
 var reverseStringInPlace = function(str) {
   var arr = str.split('');
   for (var i = 0; i < arr.length/2; i++) {

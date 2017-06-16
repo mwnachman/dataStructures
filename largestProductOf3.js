@@ -1,3 +1,8 @@
+// Find the largest product possible out of any three
+// numbers in an array
+
+// My solution:
+
 var largestProductofThree = function(arr) {
   var sorted = arr.slice().sort(function(a, b){return a-b});
   var topTwo = sorted[sorted.length - 2] * sorted[sorted.length - 1];
@@ -10,6 +15,9 @@ var largestProductofThree = function(arr) {
 
 // [1, 10, -5, 50, -100] => 5000
 // [-1, -10, 5, 11, -2, -100, 50]
+
+
+// Hack Reactor solution:
 
 var largestProductofThree = function(arr) {
   var largest = [-Number.MAX_VALUE, -Number.MAX_VALUE, -Number.MAX_VALUE];

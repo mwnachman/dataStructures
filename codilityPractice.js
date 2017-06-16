@@ -59,6 +59,6 @@
 Loop through front to back and create an array where each element is 
 the sum of all the elements before it.  Do the same proceeding from 
 the tail end, creating a second array.  Then compare the values at 
-each index to see if they match.  If so, return the value of the index.
+each index to see if any match.  If so, return the value of that index.
 You can also push to an array of all indices where they match if you 
 prefer to return all solutions.

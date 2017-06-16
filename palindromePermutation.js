@@ -27,6 +27,6 @@ var palindromePermutation = function(string) {
   return true;
 }
 
-console.log(palindromePermutation(str1));
-console.log(palindromePermutation(str2));
-console.log(palindromePermutation(str3));
+console.assert(palindromePermutation(str1), '1 failed');
+console.assert(palindromePermutation(str2), '2 failed');
+console.assert(palindromePermutation(str3), '3 failed');

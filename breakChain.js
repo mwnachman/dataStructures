@@ -10,11 +10,11 @@
 // 1, 2, or 3 and 0 would be less, but you can't break
 // on zero because it's at the end
 
-function solution(A) {
+function solution(arr) {
   var lowestFour = [[Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE]];
-  for (var i = 1; i < A.length - 1; i++) {
-    if (A[i] < lowestFour[3][0]) {
-      lowestFour[3] = [A[i], i];
+  for (var i = 1; i < arr.length - 1; i++) {
+    if (arr[i] < lowestFour[3][0]) {
+      lowestFour[3] = [arr[i], i];
       lowestFour.sort(function(a, b){return a[0] - b[0]});
     }    
   }
@@ -27,6 +27,8 @@ function solution(A) {
   }
 }
 
+
+// TESTS
 
 
 

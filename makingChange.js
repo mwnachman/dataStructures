@@ -29,7 +29,8 @@ var makeChange = function(amountChange, denominations) {
 
 
 // Another way to do it with vanilla recursion (this solution is a variation
-// on Interview Cake's solution) -- it's a little bit slower than mine:
+// on Interview Cake's solution) -- it's a little bit slower than mine for the 
+// higher numbers:
 
 var makeChange = function(amountLeft, denominations, index) {
     index = index || 0;
@@ -126,8 +127,12 @@ console.timeEnd('MakeChange');
 console.time('MakeChange');
 console.log('makeChange', makeChange(70, denominations));
 console.timeEnd('MakeChange');
-
-
+console.time('MakeChange');
+console.log('makeChange', makeChange(1000, denominations));
+console.timeEnd('MakeChange');
+console.time('MakeChange');
+console.log('makeChange', makeChange(1070, denominations));
+console.timeEnd('MakeChange');
 
 
 

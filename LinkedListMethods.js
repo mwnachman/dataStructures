@@ -72,7 +72,7 @@ LinkedList.prototype.deleteNode = function(node) {
 
 
 
-// right now this is an infinite loop:
+// right now this is an infinite loop -- work on it:
 
 // LinkedList.prototype.reverseList = function() {
 //   var currentNode = this.head;

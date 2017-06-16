@@ -1,3 +1,7 @@
+// Find the dimensions and location in space of the overlap of two
+// rectangles, given the leftX and bottomY cordinates, as well as the
+// width and height of the two rectanges.
+
 var findOverlap = function(start1, difference1, start2, difference2){
   
   var highestStartPoint = Math.max(start1, start2);

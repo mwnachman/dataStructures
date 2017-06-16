@@ -14,12 +14,12 @@ function biggestIncrease(arrayOfNumbers) {
   var tuples = {};
   var highest = 0;
 
-  for (var i = 0; i < stockPricesYesterday.length; i++) {
-    for (var j = i + 1; j < stockPricesYesterday.length; j++) {
-      if (stockPricesYesterday[i] < stockPricesYesterday[j] && 
-        (tuples[stockPricesYesterday[i]] < stockPricesYesterday[j]
-          || tuples[stockPricesYesterday[i]] === undefined)) {
-        tuples[stockPricesYesterday[i]] = stockPricesYesterday[j];
+  for (var i = 0; i < arrayOfNumbers.length; i++) {
+    for (var j = i + 1; j < arrayOfNumbers.length; j++) {
+      if (arrayOfNumbers[i] < arrayOfNumbers[j] && 
+        (tuples[arrayOfNumbers[i]] < arrayOfNumbers[j]
+          || tuples[arrayOfNumbers[i]] === undefined)) {
+        tuples[arrayOfNumbers[i]] = arrayOfNumbers[j];
       }
     }
   }

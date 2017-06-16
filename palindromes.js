@@ -1,10 +1,4 @@
-var longestPalindrome = function(str) {
-  // Not yet completed
-}
-
-
-
-
+// PALINDROME ALGOS:
 
 // Returns true if any combination of the letters in the
 // string is a palindrome:
@@ -37,4 +31,8 @@ var canMakePalindrome = function(str) {
     }
   }
   return oddNumberOccurrences.size === 1 ? true : false;  
+}
+
+var longestPalindrome = function(str) {
+  // Not yet completed
 }

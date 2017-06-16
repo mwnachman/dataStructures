@@ -20,3 +20,4 @@ var binarySearchArray = function(arr, target) {
 
 // can also be done recursively
 
+// TO UPDATE
