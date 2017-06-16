@@ -20,3 +20,22 @@ const findRotationPoint = function(arr) {
 
   return upperBoundIndex;
 }
+
+const arr1 = [5, 6, 7, 8, 9, 0, 1, 2, 3, 4]
+const arr2 = [1, 1, 0, 1, 1, 1, 1]
+const arr3 = [   
+  "ptolemaic",
+  "retrograde",
+  "supplant",
+  "undulate",
+  "xenoepist",
+  "asymptote", 
+  "babka",
+  "banoffee",
+  "engender",
+  "karpatka",
+  "othellolagkage"]
+
+console.assert(findRotationPoint(arr1) === 5, 'arr1 failed')
+console.assert(findRotationPoint(arr2) === 2, 'arr2 failed')
+console.assert(findRotationPoint(arr3) === 5, 'arr2 failed')
