@@ -61,5 +61,3 @@ function rgb(r, g, b){
   
   return hexArray.join('')
 }
-
-
