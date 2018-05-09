@@ -1,9 +1,10 @@
 # dataStructures
 
-My practice with data structures and algorithms in preparation for coding interviews.  
-These problems are from Interview Cake, Cracking the Coding Interview, Hack Reactor,
-Code Wars, and real interviews.  All the solutions are my own.  Some are more elegant than others.
+Practice with data structures and algorithms in Javascript and Python.
+
+These problems come from a variety of sources, including Interview Cake, Cracking the Coding Interview, 
+Hack Reactor, Codewars, and real interviews.  All the solutions are my own; some are more elegant than others.
 
 My particular favorites include Making Change, Count K Difference Instances, Array Product, Biggest Increase, and Largest Product of Three.
 
-Pull down the repo and pop the name of the file into index.html to run the tests.
+For the Javascript files, if there are tests in a file, just pop the name of the file into line 11 of index.html to run the them in the console.
