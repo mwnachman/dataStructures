@@ -7,18 +7,7 @@ import random
 # the faster solution is correct.
 
 
-# Slow solution
-def max_pairwise_product_slow(numbers):
-    n = len(numbers)
-    max_product = 0
-    for first in range(n):
-        for second in range(first + 1, n):
-            max_product = max(max_product,
-                              numbers[first] * numbers[second])
-    return max_product
-
-
-# Fast solution
+# Efficient solution
 def max_pairwise_product(numbers):
   n = len(numbers)
   max_product = 0
@@ -32,6 +21,17 @@ def max_pairwise_product(numbers):
     elif number > second_highest:
       second_highest = number
   return highest * second_highest
+
+
+# Naive solution
+def max_pairwise_product_slow(numbers):
+  n = len(numbers)
+  max_product = 0
+  for first in range(n):
+    for second in range(first + 1, n):
+      max_product = max(max_product,
+        numbers[first] * numbers[second])
+  return max_product
 
 
 # Generate test data and compare two algorithms for accuracy

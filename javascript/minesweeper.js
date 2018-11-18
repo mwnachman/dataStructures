@@ -20,10 +20,10 @@
 
 // Helper function: 
 
-var checkRow = function(array, i, j, realI) {
-  var countRow = 0;
+function checkRow(array, i, j, realI) {
+  let countRow = 0;
   if (array[i] !== undefined) {
-    for (var k = j - 1; k <= j + 1; k++) {
+    for (let k = j - 1; k <= j + 1; k++) {
       if (i === realI && k === j) {
         continue;
       } else if (array[i][k] === -1) {
@@ -36,23 +36,20 @@ var checkRow = function(array, i, j, realI) {
 
 // Main function: 
 
-var adjacentMines = function(array) {
-  var adjacentMinesArray = [];
-  for (var i = 0; i < array.length; i++) {
+function adjacentMines(array) {
+  let adjacentMinesArray = [];
+  for (let i = 0; i < array.length; i++) {
     adjacentMinesArray[i] = [];
-    for (var j = 0; j < array[i].length; j++) {
+    for (let j = 0; j < array[i].length; j++) {
       if (array[i][j] === -1) {
         adjacentMinesArray[i][j] = -1;
       } else {
-        var count = checkRow(array, i - 1, j, i) 
-                    + checkRow(array, i + 1, j, i) 
-                    + checkRow(array, i, j, i);
-        adjacentMinesArray[i][j] = count;
+        adjacentMinesArray[i][j] = checkRow(array, i - 1, j, i)
+                                    + checkRow(array, i + 1, j, i)
+                                    + checkRow(array, i, j, i);
       }
     }
   }
   return adjacentMinesArray;
 }
-
-
 
