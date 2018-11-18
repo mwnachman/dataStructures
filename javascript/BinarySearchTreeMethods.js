@@ -25,6 +25,9 @@ BinarySearchTreeNode.prototype.addChild = function(value) {
 }
 
 BinarySearchTreeNode.prototype.contains = function(value) {
+  //Checking the value itself, then the left, and then right is called "pre-order traversal"
+  //"In-order traversal" checks the left child first then the value, then the right child.
+  //"Post-order traversal" checks the children before the parent.
   if (value === this.value) {
     return true;
   } else if (value < this.value) {
@@ -55,8 +58,7 @@ BinarySearchTreeNode.prototype.depthFirstLog = function(callback) {
 // function that takes a new number and returns the closest 
 // number in the list using your BST. 
 
-// My rather inelegant solution (if two numbers are equally close, 
-// it returns the last one it finds:
+// My rather inelegant solution:
 
 BinarySearchTreeNode.prototype.findClosestNode = function(value, closestSoFar) {
   closestSoFar = closestSoFar || Math.MAX_VALUE;
@@ -133,26 +135,3 @@ BinarySearchTreeNode.prototype.checkDepthEquality = function() {
   recurse(0, this);
   return result;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

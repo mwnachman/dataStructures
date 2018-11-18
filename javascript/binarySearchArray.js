@@ -1,6 +1,6 @@
 // iterative version
 
-var binarySearchArray = function(arr, target) {
+function binarySearchArray(arr, target) {
   var lowerBoundIndex = -1;
   var upperBoundIndex = arr.length;
 

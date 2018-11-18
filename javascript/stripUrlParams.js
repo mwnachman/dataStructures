@@ -21,7 +21,7 @@ function stripUrlParams(url, paramsToStrip = []){
   }
 }
 
-console.assert(stripUrlParams('www.google.com?a=1&b=2&a=2') === 'www.google.com?a=1&b=2', '1 passed')
-console.assert(stripUrlParams('www.google.com?a=1&b=2&a=2', ['b']) === 'www.google.com?a=1', '2 passed')
-console.assert(stripUrlParams('www.google.com', ['b'])=== 'www.google.com', '3 passed')
-console.assert(stripUrlParams('www.google.com?a=1&b=4&c=7&a=3', ['b', 'c']) === 'www.google.com?a=1', '4 passed')
+// console.assert(stripUrlParams('www.google.com?a=1&b=2&a=2') === 'www.google.com?a=1&b=2', '1 passed')
+// console.assert(stripUrlParams('www.google.com?a=1&b=2&a=2', ['b']) === 'www.google.com?a=1', '2 passed')
+// console.assert(stripUrlParams('www.google.com', ['b'])=== 'www.google.com', '3 passed')
+// console.assert(stripUrlParams('www.google.com?a=1&b=4&c=7&a=3', ['b', 'c']) === 'www.google.com?a=1', '4 passed')

@@ -1,4 +1,6 @@
-// Given an array of random integers (a), and a non-negative integer (k), display the number of times 2 numbers in the array have a difference of k
+// Given an array of random integers (a), and a 
+// non-negative integer (k), display the number 
+// of times 2 numbers in the array have a difference of k
 
 // Example 1:
 // a = [3, 2, 7, 9, 10]
@@ -16,13 +18,6 @@
 
 // ____________________________________________________________________
 
-// BRUTE FORCE -- O(n^2): 
-
-// loop through array (i)
-  // loop through a second time where you start at index one above (j = i + 1)
-  
-
-// use hash table -- O(n)
 
 var findNumTimesKDifference2 = (arr, k) => {
   let hT = {};
@@ -46,6 +41,3 @@ var findNumTimesKDifference2 = (arr, k) => {
   }
   return counter;
 }
-
-
-

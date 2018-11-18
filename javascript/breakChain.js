@@ -11,7 +11,7 @@
 // 1 or 2 and 0 would be less, but you can't break
 // on zero because it's at the end.
 
-const breakChain = function(arr) {
+function breakChain(arr) {
   const lowestFour = [[Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE], [Number.MAX_VALUE]];
   for (let i = 1; i < arr.length - 1; i++) {
     if (arr[i] < lowestFour[3][0]) {
@@ -30,14 +30,14 @@ const breakChain = function(arr) {
 
 // TESTS
 
-const arr1 = [5, 2, 6, 1, 1, 0]
-const arr2 = [0, 4, 3, 5, 1, 2, 4]
-const arr3 = [1, 1, 1, 1, 1, 1, 1]
-const arr4 = [-3, -4, -1, 0, 1]
-const arr5 = [-3, -4, -1, 0, 1, -2, -7]
+// const arr1 = [5, 2, 6, 1, 1, 0]
+// const arr2 = [0, 4, 3, 5, 1, 2, 4]
+// const arr3 = [1, 1, 1, 1, 1, 1, 1]
+// const arr4 = [-3, -4, -1, 0, 1]
+// const arr5 = [-3, -4, -1, 0, 1, -2, -7]
 
-console.assert(breakChain(arr1) === 3, '1 failed')
-console.assert(breakChain(arr2) === 4, '2 failed')
-console.assert(breakChain(arr3) === 2, '3 failed')
-console.assert(breakChain(arr4) === -4, '4 failed')
-console.assert(breakChain(arr5) === -6, '5 failed')
+// console.assert(breakChain(arr1) === 3, '1 failed')
+// console.assert(breakChain(arr2) === 4, '2 failed')
+// console.assert(breakChain(arr3) === 2, '3 failed')
+// console.assert(breakChain(arr4) === -4, '4 failed')
+// console.assert(breakChain(arr5) === -6, '5 failed')

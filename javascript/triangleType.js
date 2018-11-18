@@ -1,9 +1,5 @@
-// From Codewars:
-
-// Description:
-
-// In this kata, you should calculate type of triangle with 
-// three given sides a, b and c (given in any order).
+// Calculate type of triangle with three given 
+// sides a, b and c (given in any order).
 
 // If all angles are less than 90°, this triangle is 
 // acute and function should return 1.
@@ -42,17 +38,17 @@ function triangleType(a, b, c){
     return 0;
   }
   else {
-    var aTemp = arguments[0];
-    var bTemp = arguments[1];
-    var cTemp = arguments[2];
-    var arrayTemp = [aTemp, bTemp, cTemp];
-    var aUse = Math.min(aTemp, bTemp, cTemp);
-    var x = arrayTemp.indexOf(aUse);
+    let aTemp = arguments[0];
+    let bTemp = arguments[1];
+    let cTemp = arguments[2];
+    let arrayTemp = [aTemp, bTemp, cTemp];
+    let aUse = Math.min(aTemp, bTemp, cTemp);
+    let x = arrayTemp.indexOf(aUse);
     arrayTemp.splice(x, 1);
-    var cUse = Math.max(aTemp, bTemp, cTemp);
-    var y = arrayTemp.indexOf(cUse);
+    let cUse = Math.max(aTemp, bTemp, cTemp);
+    let y = arrayTemp.indexOf(cUse);
     arrayTemp.splice(y, 1);
-    var bUse = arrayTemp[0];
+    let bUse = arrayTemp[0];
     if (aUse + bUse <= cUse){
       return 0;
       }
@@ -67,7 +63,3 @@ function triangleType(a, b, c){
       }
   }
 }
-
-
-
-

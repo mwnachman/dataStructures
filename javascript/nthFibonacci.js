@@ -33,5 +33,3 @@ var nthFibonacci = function(n) {
   }
   return current;
 }
-
-

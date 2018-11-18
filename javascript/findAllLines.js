@@ -78,15 +78,3 @@ var findAllLines = function(set) {
   }
   return lines;
 }
-
-
-
-
-
-
-
-
-
-
-
-

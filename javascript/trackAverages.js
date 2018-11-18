@@ -1,11 +1,11 @@
-var AverageTracker = function() {
+const AverageTracker = function() {
 
   this.counter = 0;
   this.min = null;
   this.max = null;
   this.totalSum = 0;
   this.occurrences = [];
-  for (var i = 0; i < 121; i ++) {
+  for (let i = 0; i < 121; i ++) {
     this.occurrences[i] = 0;
   }
   this.highestOccurrences = 0;

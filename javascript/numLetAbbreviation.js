@@ -1,4 +1,4 @@
-// From Codewars:
+// The problem (a Codewars kata):
  
 // Description:
 
@@ -61,16 +61,3 @@ function abbreviate(string) {
   });
   return newArray.join(' ');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -28,28 +28,28 @@ const findRotationPoint = function(arr) {
   return upperBoundIndex;
 }
 
-const arr1 = [5, 6, 7, 8, 9, 0, 1, 2, 3, 4]
-const arr2 = [1, 1, 0, 1, 1, 1, 1, 1, 1]
-const arr3 = [   
-  "ptolemaic",
-  "retrograde",
-  "supplant",
-  "undulate",
-  "xenoepist",
-  "yahoo",
-  "asymptote", 
-  "babka",
-  "banoffee",
-  "engender",
-  "karpatka",
-  "othellolagkage"]
-const arr4 = [5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-const arr5 = [8, 9, 0, 1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 8, 9, 10, 11, 12]
-const arr6 = [5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 9, 0, 1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 8, 9, 10, 11, 12]
+// const arr1 = [5, 6, 7, 8, 9, 0, 1, 2, 3, 4]
+// const arr2 = [1, 1, 0, 1, 1, 1, 1, 1, 1]
+// const arr3 = [   
+//   "ptolemaic",
+//   "retrograde",
+//   "supplant",
+//   "undulate",
+//   "xenoepist",
+//   "yahoo",
+//   "asymptote", 
+//   "babka",
+//   "banoffee",
+//   "engender",
+//   "karpatka",
+//   "othellolagkage"]
+// const arr4 = [5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+// const arr5 = [8, 9, 0, 1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 8, 9, 10, 11, 12]
+// const arr6 = [5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 9, 0, 1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 8, 9, 10, 11, 12]
 
-console.assert(findRotationPoint(arr1) === 5, 'arr1 failed')
-console.assert(findRotationPoint(arr2) === 2, 'arr2 failed')
-console.assert(findRotationPoint(arr3) === 6, 'arr3 failed')
-console.assert(findRotationPoint(arr4) === 5, 'arr4 failed')
-console.assert(findRotationPoint(arr5) === 2, 'arr5 failed')
-console.assert(findRotationPoint(arr6) === 11, 'arr6 failed')
+// console.assert(findRotationPoint(arr1) === 5, 'arr1 failed')
+// console.assert(findRotationPoint(arr2) === 2, 'arr2 failed')
+// console.assert(findRotationPoint(arr3) === 6, 'arr3 failed')
+// console.assert(findRotationPoint(arr4) === 5, 'arr4 failed')
+// console.assert(findRotationPoint(arr5) === 2, 'arr5 failed')
+// console.assert(findRotationPoint(arr6) === 11, 'arr6 failed')

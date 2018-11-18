@@ -6,42 +6,14 @@
 // and the biggest increase before it (from 3 to 8 === 5) is
 // less than 6.
 
-
-// BRUTE FORCE -- O(n^2):
-
-function biggestIncrease(arrayOfNumbers) {
-
-  var tuples = {};
-  var highest = 0;
-
-  for (var i = 0; i < arrayOfNumbers.length; i++) {
-    for (var j = i + 1; j < arrayOfNumbers.length; j++) {
-      if (arrayOfNumbers[i] < arrayOfNumbers[j] && 
-        (tuples[arrayOfNumbers[i]] < arrayOfNumbers[j]
-          || tuples[arrayOfNumbers[i]] === undefined)) {
-        tuples[arrayOfNumbers[i]] = arrayOfNumbers[j];
-      }
-    }
-  }
-
-  for (key in tuples) {
-    if ((tuples[key] - key) > highest) {
-      highest = tuples[key] - key;
-    }
-  }
-
-  return highest;
-
-};
-
 // O(n) time complexity and constant space:
 
 function biggestIncreaseV2(arrayOfNumbers) {
   
-  var maxDiff = 0;
-  var min = arrayOfNumbers[0];
+  let maxDiff = 0;
+  let min = arrayOfNumbers[0];
 
-  for (var i = 0; i < arrayOfNumbers.length; i++) {
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
     if (arrayOfNumbers[i] < min) {
       min = arrayOfNumbers[i];
     }
@@ -51,29 +23,3 @@ function biggestIncreaseV2(arrayOfNumbers) {
   }
   return maxDiff;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,7 @@
-//  [
+// Merge blocked out times on a calendar to show solid blocks,
+// such that:
+
+// [
 //     {startTime: 3,  endTime: 5},
 //     {startTime: 0,  endTime: 1},
 //     {startTime: 4,  endTime: 8},
@@ -11,11 +14,11 @@
 //     {startTime: 9, endTime: 12},
 // ]
 
-var calendarMerge = function(arr) {
-  var result = [];
-  var tempObj = {};
-  var sorted = arr.slice().sort(function(a,b){return a.startTime - b.startTime});
-  for (var i = 0; i < sorted.length - 1; i++) {
+function calendarMerge(arr) {
+  let result = [];
+  let tempObj = {};
+  let sorted = arr.slice().sort(function(a,b){return a.startTime - b.startTime});
+  for (let i = 0; i < sorted.length - 1; i++) {
     if (i === 0) {
       tempObj = sorted[i];
     }

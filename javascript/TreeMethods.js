@@ -1,6 +1,6 @@
 // Create Tree
 
-var Tree = function(value) {
+const Tree = function(value) {
   this.value = value;
   this.children = [];
 };
@@ -22,7 +22,7 @@ Tree.prototype.isDescendant = function(child) {
   if (this.children.indexOf(child) !== -1) {
     return true;
   } else {
-    for (var i = 0; i < this.children.length; i++) {
+    for (let i = 0; i < this.children.length; i++) {
       if (this.children[i].isDescendant(child)) {
         return true;
       }
@@ -32,7 +32,7 @@ Tree.prototype.isDescendant = function(child) {
 };
 
 Tree.prototype.removeChild = function(child) {
-  var index = this.children.indexOf(child);
+  let index = this.children.indexOf(child);
   if (index !== -1) {
     this.children.splice(index, 1);
   } else {
@@ -45,8 +45,8 @@ Tree.prototype.removeChild = function(child) {
 // To count the number of leaves (i.e., nodes with no children):
 
 Tree.prototype.countLeaves = function() {
-  var count = 0;
-  var recurse = function(node) {
+  let count = 0;
+  const recurse = function(node) {
     if (node.children.length === 0) {
       count++;
     }
@@ -62,8 +62,8 @@ Tree.prototype.countLeaves = function() {
 // Map over tree:
 
 Tree.prototype.map = function(callback) {
-  var mappedTree = new Tree(callback(this.value));
-  for (var i = 0; i < this.children.length; i++) {
+  let mappedTree = new Tree(callback(this.value));
+  for (let i = 0; i < this.children.length; i++) {
     mappedTree.addChild(this.children[i].map(callback));
   }
   return mappedTree;
@@ -73,7 +73,7 @@ Tree.prototype.map = function(callback) {
 
 Tree.prototype.mapInPlace = function(callback) {
   this.value = callback(this.value);
-  for (var i = 0; i < this.children.length; i++) {
+  for (let i = 0; i < this.children.length; i++) {
     this.children[i].mapInPlace(callback);
   }
 };
@@ -90,8 +90,8 @@ Tree.prototype.depthFirstFilter = function(filter, depth, results) {
     results.push(this.value);
   }
 
-  for (var i = 0; i < this.children.length; i++) {
-    var child = this.children[i];
+  for (let i = 0; i < this.children.length; i++) {
+    let child = this.children[i];
     child.depthFirstFilter(filter, depth + 1, results);
   }
 

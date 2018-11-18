@@ -5,9 +5,9 @@
 
 // Iterative:
 
-var factorial_iterative = function(n) {
-    var product = 1;
-    for (var i = 1; i <= n; i++) {
+function factorial_iterative(n) {
+    let product = 1;
+    for (let i = 1; i <= n; i++) {
         product = product * i;
     }
     return product;
@@ -15,7 +15,7 @@ var factorial_iterative = function(n) {
 
 // Recursive:
 
-var factorial_recursive = function(n) {
+function factorial_recursive(n) {
     if (n === 1) {
         return 1;
     } else {
@@ -26,9 +26,9 @@ var factorial_recursive = function(n) {
 
 // Using past result saved in a hash table:
 
-var factorialHash = {};
+let factorialHash = {};
 
-var factorial_hash = function(n) {
+function factorial_hash(n) {
     if (n === 1) {
         return 1;
     }
@@ -45,11 +45,11 @@ var factorial_hash = function(n) {
 
 // With memoization:
 
-var factorial_memo = (function () {
+function factorial_memo(function () {
     
-    var factorialHash = {};
+    let factorialHash = {};
     
-    var fact = function (n) {
+    function fact(n) {
         
         if (n === 1) {
             return 1;
