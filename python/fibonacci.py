@@ -13,13 +13,14 @@ def calc_fib(n):
 # Calculate the last digit of a large fibonacci number:
 
 def get_last_fibonacci_digit(n):
-    if n <= 1:
-        return n
+  if n <= 1:
+    return n
 
-    previous = 0
-    current  = 1
+  previous = 0
+  current  = 1
 
-    for _ in range(n - 1):
-        previous, current = current, int(str(previous + current)[-1])
+  for _ in range(n - 1):
+    previous, current = current, (previous + current) % 10
 
-    return current % 10
+  return current
+
