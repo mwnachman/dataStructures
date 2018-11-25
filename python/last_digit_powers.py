@@ -4,22 +4,18 @@
 import math
  
 def last_digit(a, b) :
-
-	a = str(a)
-	b = str(b)
  
-	if (b == '0') :
+	if b == 0:
 		return 1
  
-	if (a == '0') :
+	if a == 0:
 		return 0
  
-	if((int(b)%4 == 0)) :
+	if b % 4 == 0:
 		exp = 4
 	else : 
-		exp = int(b)%4
- 
-	res = math.pow((int)(a[len(a) - 1]), exp)
- 
-	return res % 10
+		exp = b % 4
 
+	res = math.pow(a % 10, exp)
+ 
+	return int(res % 10)

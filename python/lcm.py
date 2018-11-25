@@ -1,3 +1,4 @@
+# Python2
 import random 
 
 # Helper function to find greatest common denominator:
