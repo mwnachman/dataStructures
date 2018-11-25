@@ -9,8 +9,8 @@ def sum_range(m, n, sum, arr):
 def fibonacci_partial_sum(m, n):
   results = []
 
-  # The period of Fibonacci sums is 60:
-  for i in range(61):
+  # The period of Fibonacci sums is 60 (Fib 0 to Fib 59):
+  for i in range(60):
     if i <= 1:
       results.append(i)
     else:

@@ -10,8 +10,8 @@ def fibonacci_sum(n):
   sums = []
   sum = 0
 
-  # The period has a length of 60:
-  for i in range(61):
+  # The period has a length of 60 (Fib 0 to Fib 59):
+  for i in range(60):
     if i <= 1:
       results.append(i)
       sum += i
